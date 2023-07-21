@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "703385361183",
+    "project_id": "deutsch-vocab",
+    "storage_bucket": "deutsch-vocab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:703385361183:android:f0bd2a13882380f5a7ae2a",
+        "android_client_info": {
+          "package_name": "com.maple.deutschvocab.deutschvocab"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "703385361183-4gs5j7edd6olf3qdujs7khqpgulhqra8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeCTVritN93XRKr4M3U2zU6pnYw-iMilc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "703385361183-4gs5j7edd6olf3qdujs7khqpgulhqra8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
