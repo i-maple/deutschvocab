@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:deutschvocab/provider/vocabulary_list_provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'screens/home_screen.dart';
 
@@ -22,11 +24,18 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      initialRoute: '/home',
-      routes: {
-        '/home':(context) => HomeScreen(),
-      },
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => VocabularyListProvider(),
+        ),
+      ],
+      child: MaterialApp(
+        initialRoute: '/home',
+        routes: {
+          '/home': (context) => const HomeScreen(),
+        },
+      ),
     );
   }
 }
