@@ -15,12 +15,4 @@ class FirestoreServices {
       'partOfSpeech': model.partOfSpeech
     });
   }
-
-  getQueryForField(String field, String searchText) {
-    return _firestore
-        .collection('items')
-        .where(field, isGreaterThanOrEqualTo: searchText)
-        .where(field, isLessThanOrEqualTo: '$searchText\uf8ff')
-        .snapshots();
-  }
 }
