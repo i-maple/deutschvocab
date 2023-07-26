@@ -1,3 +1,4 @@
+import 'package:deutschvocab/services/text_to_speech.dart';
 import 'package:flutter/material.dart';
 
 class Modal extends StatelessWidget {
@@ -7,6 +8,7 @@ class Modal extends StatelessWidget {
   final Function()? onCancel;
 
   const Modal({
+    super.key,
     required this.title,
     required this.message,
     this.onConfirm,
@@ -53,6 +55,12 @@ class Modal extends StatelessWidget {
                   ),
               ],
             ),
+            IconButton(
+                onPressed: () {
+                  TextToSpeech _tts = TextToSpeech();
+                  _tts.speak(message, TextToSpeech.languages['german']);
+                },
+                icon: Icon(Icons.speaker))
           ],
         ),
       ),
