@@ -1,7 +1,6 @@
 import 'package:connectivity_checker/connectivity_checker.dart';
 
 class CheckConnectivity {
-  isConnected() async {
-    return await ConnectivityWrapper.instance.isConnected;
-  }
+  final Future<bool> _isConnectedFuture = ConnectivityWrapper.instance.isConnected;
+  Stream<bool> getConnectedStream() => _isConnectedFuture.asStream();
 }
