@@ -1,13 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:deutschvocab/provider/login_provider.dart';
-import 'package:deutschvocab/provider/vocabulary_list_provider.dart';
-import 'package:deutschvocab/screens/login_onboarding_screen.dart';
-import 'package:deutschvocab/screens/login_screen.dart';
+import 'package:deutschvocab/ui/provider/login_provider.dart';
+import 'package:deutschvocab/ui/provider/vocabulary_list_provider.dart';
+import 'package:deutschvocab/ui/screens/login_onboarding_screen.dart';
+import 'package:deutschvocab/ui/screens/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'screens/home_screen.dart';
+import 'ui/screens/home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

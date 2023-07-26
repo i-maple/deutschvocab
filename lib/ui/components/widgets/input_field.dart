@@ -1,7 +1,7 @@
-import 'package:deutschvocab/provider/login_provider.dart';
+import 'package:deutschvocab/ui/provider/login_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../colors.dart';
+import '../../utils/colors.dart';
 
 class InputField extends StatelessWidget {
   const InputField({

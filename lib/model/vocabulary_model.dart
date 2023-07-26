@@ -1,4 +1,4 @@
-import 'package:deutschvocab/enums.dart';
+import 'package:deutschvocab/ui/utils/enums.dart';
 
 class VocabularyModel {
   final String german;

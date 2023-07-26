@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../colors.dart';
+import '../utils/colors.dart';
 import '../components/widgets/curve_layout.dart';
 import '../components/widgets/splash_button.dart';
 

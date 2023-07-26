@@ -1,6 +1,6 @@
-import 'package:deutschvocab/colors.dart';
-import 'package:deutschvocab/components/widgets/input_field.dart';
-import 'package:deutschvocab/components/widgets/splash_button.dart';
+import 'package:deutschvocab/ui/utils/colors.dart';
+import 'package:deutschvocab/ui/components/widgets/input_field.dart';
+import 'package:deutschvocab/ui/components/widgets/splash_button.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {

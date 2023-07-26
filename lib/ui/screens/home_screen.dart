@@ -1,12 +1,12 @@
 import 'dart:async';
-import 'package:deutschvocab/provider/vocabulary_list_provider.dart';
-import 'package:deutschvocab/services/firestore_services.dart';
+import 'package:deutschvocab/ui/provider/vocabulary_list_provider.dart';
+import 'package:deutschvocab/logic/services/firestore_services.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../components/widgets/vocabulary_list.dart';
-import '../model/vocabulary_model.dart';
-import '../services/check_connectivity.dart';
+import '../../model/vocabulary_model.dart';
+import '../../logic/services/check_connectivity.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

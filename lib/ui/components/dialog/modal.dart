@@ -1,4 +1,4 @@
-import 'package:deutschvocab/services/text_to_speech.dart';
+import 'package:deutschvocab/logic/services/text_to_speech.dart';
 import 'package:flutter/material.dart';
 
 class Modal extends StatelessWidget {

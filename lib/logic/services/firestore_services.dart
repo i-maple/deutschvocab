@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import '../model/vocabulary_model.dart';
+import '../../model/vocabulary_model.dart';
 
 class FirestoreServices {
   final _firestore = FirebaseFirestore.instance;

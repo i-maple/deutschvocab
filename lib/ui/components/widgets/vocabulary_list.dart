@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:deutschvocab/components/dialog/modal.dart';
-import 'package:deutschvocab/provider/vocabulary_list_provider.dart';
+import 'package:deutschvocab/ui/components/dialog/modal.dart';
+import 'package:deutschvocab/ui/provider/vocabulary_list_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
