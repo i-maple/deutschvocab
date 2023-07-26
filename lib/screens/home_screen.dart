@@ -1,9 +1,10 @@
 import 'dart:async';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:deutschvocab/provider/vocabulary_list_provider.dart';
 import 'package:deutschvocab/services/firestore_services.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../components/widgets/vocabulary_list.dart';
 import '../model/vocabulary_model.dart';
 import '../services/check_connectivity.dart';
 
@@ -19,10 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   late TextEditingController _english;
   late TextEditingController _deutsch;
   late TextEditingController _search;
-  Stream<QuerySnapshot>? _searchStream;
   final FirestoreServices _firestoreServices = FirestoreServices();
-
-  StreamController _streamController = StreamController();
   StreamSubscription? _streamSubscription;
 
   bool conn = false;
@@ -34,13 +32,6 @@ class _HomeScreenState extends State<HomeScreen> {
       conn = data;
     }, onError: (error) {
       throw error;
-    });
-  }
-
-  void _startSearch(String searchText) {
-    setState(() {
-      // Update the searchStream with the merged results of both queries
-      _searchStream = _firestoreServices.getQueryForField('german', searchText);
     });
   }
 
@@ -58,7 +49,6 @@ class _HomeScreenState extends State<HomeScreen> {
     _english.dispose();
     _deutsch.dispose();
     _search.dispose();
-    _streamController.close();
     _streamSubscription?.cancel();
     super.dispose();
   }
@@ -83,6 +73,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var vocabularyListProvider =
+        Provider.of<VocabularyListProvider>(context, listen: false);
+
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -196,7 +189,6 @@ class _HomeScreenState extends State<HomeScreen> {
               Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: TextField(
-                  controller: _search,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderSide: const BorderSide(
@@ -208,41 +200,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     hintText: 'Search',
                   ),
                   onChanged: (value) {
-                    _startSearch(value);
+                    vocabularyListProvider.startSearchInVocabulary(
+                        value, 'english');
                   },
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: StreamBuilder<QuerySnapshot>(
-                  stream: _searchStream ??
-                      FirebaseFirestore.instance
-                          .collection('vocabulary')
-                          .orderBy('english', descending: false)
-                          .snapshots(),
-                  builder:
-                      (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-                    List items = [];
-                    if (snapshot.hasData && !snapshot.hasError) {
-                      items = snapshot.data.docs.toList()
-                        ..sort((a, b) => (a['german'].toString().toLowerCase())
-                            .compareTo(b['english'].toString().toLowerCase()));
-                      return ListView.builder(
-                        itemCount: items.length,
-                        shrinkWrap: true,
-                        itemBuilder: (context, index) {
-                          return Card(
-                            child: ListTile(
-                              title: Text(items[index]['english']),
-                              trailing: Text(items[index]['german']),
-                            ),
-                          );
-                        },
-                      );
-                    }
-                    return const Text('No Data Found');
-                  },
-                ),
+              const Padding(
+                padding: EdgeInsets.all(15.0),
+                child: VocabularyList(),
               ),
             ],
           ),
