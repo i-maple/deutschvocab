@@ -1,5 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:deutschvocab/provider/login_provider.dart';
 import 'package:deutschvocab/provider/vocabulary_list_provider.dart';
+import 'package:deutschvocab/screens/login_onboarding_screen.dart';
+import 'package:deutschvocab/screens/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -29,11 +32,16 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider(
           create: (_) => VocabularyListProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (_) => LoginProvider(),
+        ),
       ],
       child: MaterialApp(
-        initialRoute: '/home',
+        initialRoute: '/login',
         routes: {
           '/home': (context) => const HomeScreen(),
+          '/login-onboarding': (context) => const LoginOnboardingScreen(),
+          '/login':(context) => const LoginScreen(),
         },
       ),
     );
