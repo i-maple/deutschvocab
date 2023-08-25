@@ -1,4 +1,4 @@
-# deutschvocab
+# Deutschpeak - Deutsch On Your Pocket
 
 A new Flutter project.
 
